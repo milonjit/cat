@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Purrfect Surprise</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Poppins&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to top left, #fff7f0, #fcdada);
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    .container {
+      text-align: center;
+      padding: 50px 20px;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2em;
+      color: #d16ba5;
+      margin-bottom: 10px;
+      animation: fadeIn 2s ease forwards;
+    }
+
+    p {
+      font-size: 1.2em;
+      color: #5f4b8b;
+      animation: fadeIn 3s ease forwards;
+    }
+
+    .cat-img {
+      width: 80%;
+      max-width: 300px;
+      border-radius: 20px;
+      margin: 30px auto;
+      animation: popUp 1.5s ease forwards;
+    }
+
+    .btn {
+      padding: 15px 30px;
+      background-color: #ff90b3;
+      border: none;
+      border-radius: 30px;
+      font-size: 1.2em;
+      color: white;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #ff5e8e;
+    }
+
+    .hidden-section {
+      display: none;
+      margin-top: 30px;
+      animation: fadeIn 1s ease forwards;
+    }
+
+    .floating-heart {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: url('https://emoji.slack-edge.com/T01JKEUNS2P/heart/19f399ff5a39ce1b.gif') no-repeat center/cover;
+      animation: floatUp 5s linear infinite;
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-600px);
+        opacity: 0;
+      }
+    }
+
+    @keyframes fadeIn {
+      0% {opacity: 0; transform: translateY(20px);}
+      100% {opacity: 1; transform: translateY(0);}
+    }
+
+    @keyframes popUp {
+      0% {transform: scale(0.8); opacity: 0;}
+      100% {transform: scale(1); opacity: 1;}
+    }
+
+    /* Polaroid Gallery */
+    .gallery {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 50px;
+      flex-wrap: wrap;
+      justify-content: space-around;
+    }
+
+    .polaroid {
+      position: relative;
+      width: 200px;
+      height: 250px;
+      background-color: #fff;
+      border: 10px solid #fff;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      padding: 10px;
+      transform: rotate(-2deg);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      margin-bottom: 20px;
+    }
+
+    .polaroid:hover {
+      transform: rotate(0deg) scale(1.05);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .polaroid img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+    }
+
+    .caption {
+      text-align: center;
+      font-size: 1.1em;
+      color: #ff5e8e;
+      margin-top: 10px;
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 1.8em;
+      }
+
+      p {
+        font-size: 1em;
+      }
+
+      .cat-img {
+        width: 90%;
+      }
+
+      .btn {
+        font-size: 1em;
+      }
+
+      .polaroid {
+        width: 150px;
+        height: 200px;
+      }
+
+      .floating-heart {
+        width: 15px;
+        height: 15px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 1.5em;
+      }
+
+      p {
+        font-size: 0.9em;
+      }
+
+      .cat-img {
+        width: 100%;
+        max-width: 250px;
+      }
+
+      .btn {
+        font-size: 0.9em;
+      }
+
+      .polaroid {
+        width: 130px;
+        height: 170px;
+      }
+
+      .floating-heart {
+        width: 12px;
+        height: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Hi Cat Lover 😺</h1>
+    <p>Here’s a little surprise just for you 💖</p>
+    <img class="cat-img" src="https://media.giphy.com/media/v6aOjy0Qo1fIA/giphy.gif" alt="Cute Cat" />
+    <button class="btn" onclick="revealSurprise()">Click me if you love cats 🐾</button>
+
+    <div class="hidden-section" id="surprise">
+      <img src="https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif" width="200" />
+      <p style="font-size: 1.5em; color: #ff5e8e; margin-top: 15px;">You're paws-itively amazing! 🐱💘</p>
+    </div>
+
+    <!-- Polaroid Gallery -->
+    <div class="gallery">
+      <div class="polaroid">
+        <img src="cute cat 1 .jpg" alt="Cute Cat 1">
+        <div class="caption">Cute Cat 1</div>
+      </div>
+      <div class="polaroid">
+        <img src="cute cat 4 .jpg" alt="Cute Cat 2">
+        <div class="caption">Cute Cat 2</div>
+      </div>
+      <div class="polaroid">
+        <img src="cute cat 3 .jpg" alt="Cute Cat 3">
+        <div class="caption">Cute Cat 3</div>
+      </div>
+    </div>
+  </div>
+
+  <audio id="meowSound" src="https://www.fesliyanstudios.com/play-mp3/387" preload="auto"></audio>
+
+  <script>
+    function revealSurprise() {
+      document.getElementById("surprise").style.display = "block";
+      document.getElementById("meowSound").play();
+    }
+
+    // Generate floating hearts
+    function createFloatingHearts() {
+      const heart = document.createElement("div");
+      heart.className = "floating-heart";
+      heart.style.left = Math.random() * window.innerWidth + "px";
+      document.body.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 5000);
+    }
+
+    setInterval(createFloatingHearts, 800);
+
+    // Slideshow Effect for Polaroid Gallery
+    let currentImageIndex = 0;
+    const images = document.querySelectorAll('.polaroid img');
+
+    function changeImage() {
+      images.forEach((img, index) => {
+        img.style.display = index === currentImageIndex ? 'block' : 'none';
+      });
+
+      currentImageIndex = (currentImageIndex + 1) % images.length;
+    }
+
+    setInterval(changeImage, 3000);  // Change image every 3 seconds
+    changeImage();  // Start slideshow immediately
+  </script>
+</body>
+</html>
